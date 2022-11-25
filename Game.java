@@ -9,9 +9,8 @@ public class Game {
     
     UI ui = new UI();
     SkjermVisning sv = new SkjermVisning(this, ui);
-    Player player = new Player();
-    Story story = new Story(this, ui, sv, player);
-    Database database = new Database();
+    Story story = new Story(this, ui, sv);
+    Database database = new Database(story);
     String nextPosition1, nextPosition2, nextPosition3, nextPosition4, newName;
 
     public static void main(String[] args) throws Exception  {
@@ -30,19 +29,15 @@ public class Game {
         ui.createUI(cHandler);
         story.defaultSetup();
         sv.visStartSkjerm();
- 
+        
 
 
 
     }
 
     public void Save() throws Exception{
-        
-        
-        System.out.println(UI.navn);
         database.post();
-
-        //database.getDb();
+        ui.save.setText("Saved");
 
 
     }
@@ -55,7 +50,7 @@ public class Game {
 
             switch(yourChoice){
                 case "start":sv.SignIn(); break;
-                case "enter":sv.visSpillSkjerm(); story.BedRoom(); break;
+                case "enter":sv.visSpillSkjerm();database.getDb(); /*story.BedRoom();*/ break;
                 case "v1":story.selectPosition(nextPosition1); break;
                 case "v2":story.selectPosition(nextPosition2); break;
                 case "v3":story.selectPosition(nextPosition3); break;

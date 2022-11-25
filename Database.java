@@ -7,16 +7,24 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 
 public class Database {
+        Story story;
+        UI ui;
+
+    public Database(Story s){
+
+        story = s;
+    }
+
     static String Navn, Hp, Wpn, Position;
+
 
         public ArrayList<String> getDb(){
 
         try{
-            
+            story.BedRoom();
             Connection con = getConnection();
             
             PreparedStatement statement = con.prepareStatement("SELECT navn, hp, wpn, position FROM Arsoppgave where navn = '" + UI.navn + "'");
-                System.out.println(UI.navn + " pop");
             ResultSet result = statement.executeQuery();
 
             ArrayList<String> array = new ArrayList<String>();
@@ -29,16 +37,19 @@ public class Database {
                 Position = result.getString("position");
                 System.out.println(Navn + " " + Hp + " " + Wpn + "" + Position );
 
+            
+
+
+
+            story.selectPosition(Position);
+
+                
+                
                 UI.navnLabelInnhold.setText(Navn);
                 UI.hpNumberLabel.getText();
-
                 UI.hpNumberLabel.setText(Hp);
-    
-  
-
+                
             }
-
-            System.out.println("All records have been selected!");
             return array;
         }catch(Exception e){System.out.println(e);}
         return null;
@@ -62,7 +73,7 @@ public class Database {
             posted.executeUpdate();
         } catch(Exception e){System.out.println(e);}
         finally {
-            System.out.println("Insert complete");
+            //System.out.println("Insert complete");
 
         }
 
@@ -76,7 +87,7 @@ public class Database {
             create.executeUpdate();
         }catch(Exception e){System.out.println(e);}
         finally{
-            System.out.println("Function complete.");
+            //System.out.println("Function complete.");
        
         };
 }
@@ -91,7 +102,7 @@ public class Database {
             Class.forName(driver);
             
             Connection conn = DriverManager.getConnection(url,username,password);
-            System.out.println("Connected");
+            //System.out.println("Connected");
             return conn;
         }catch(Exception e) {System.out.println(e);};
 

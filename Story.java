@@ -8,32 +8,22 @@ public class Story{
     SkjermVisning sv;
     Player player = new Player();
     Enemy enemy;
-    Database database = new Database();
     static String position;
     
     
 
-    public Story(Game g, UI userInterface, SkjermVisning sVisning, Player p){
+    public Story(Game g, UI userInterface, SkjermVisning sVisning){
 
         game = g;
         ui = userInterface;
         sv = sVisning;
-        player = p;
 
         
 
     }
     public void BedRoom(){
 
-
-			database.getDb();
             
-/*           if(Database.Position != null){
-                selectPosition(Database.Position);
-            }else{
-                System.out.println("Uy");
-            }
- */
 
  
 
@@ -50,21 +40,16 @@ public class Story{
             game.nextPosition3 = "goSleep";
             game.nextPosition4 = "";
     
-
-    
-    
-    
     
             position = "backBedRoom";
+
     
     
         }
         
  
     public void selectPosition(String nextPosition){
-        System.out.println(nextPosition);
-        switch(nextPosition){
-            //hus story
+        switch(nextPosition.trim()){
             case "lockedWindow": lockedWindow(); break;
             case "backBedRoom":BedRoom(); break; 
 

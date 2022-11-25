@@ -16,13 +16,6 @@ import javax.swing.JTextField;
 
 
 public class UI {
-    Game game;
-    SkjermVisning sv = new SkjermVisning(game, this);
-    Player player = new Player();
-    Story story = new Story(game, this, sv, player);
-    Database database = new Database();
-    
-
     JFrame window;
     Container con;
     JPanel titleNamePanel, startButtonPanel, mainTextPanel, choiceButtonPanel, playerPanel, mainTextPanelSI, skrivNavnPanel, enterKnappPanel;
@@ -248,10 +241,12 @@ public class UI {
         save.setBackground(Color.black);
         save.setForeground(Color.white);
         save.setFont(normalfont);
+        save.setBorder(null);
         save.setFocusPainted(false);
         save.addActionListener(cHandler);
         save.setActionCommand("save");
         playerPanel.add(save);
+        
 
         currentPosition = new JLabel();
         currentPosition.setFont(normalfont);
@@ -259,42 +254,28 @@ public class UI {
         currentPosition.setForeground(Color.white);
 
 
-        
-
-
-
-
         window.setVisible(true);
-        
-              //Setter det navnet du skrev inn som navn 
-             
+
+        save.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                save.setBackground(Color.gray);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                save.setBackground(Color.black);
+            }
+        });
+
+
               enterKnapp.addActionListener(new ActionListener(){
-
-                public void actionPerformed(ActionEvent e) 
-                {
-
-
-                        
-
+                public void actionPerformed(ActionEvent e) {
                     navn = skrivNavn.getText();
                     navnLabelInnhold.setText(navn);
-                
-                    
-                    String savedName = UI.navnLabelInnhold.getText();
-                    String savedHp = UI.hpNumberLabel.getText();
-
-                    savedName = Database.Navn;
-                    savedHp = Database.Hp;
-                    System.out.println(savedName + "Det her er tesrt");
-                    
-                
             }
             });
 
 
            
     }
-
 
 
 
