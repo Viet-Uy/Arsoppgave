@@ -53,7 +53,7 @@ public class UI {
         titleNamePanel = new JPanel();
         titleNamePanel.setBounds(100, 100, 600, 500);
         titleNamePanel.setBackground(Color.black);
-        titleNameLabel = new JLabel("lol");
+        titleNameLabel = new JLabel("Epic game");
         titleNameLabel.setForeground(Color.white);
         titleNameLabel.setFont(titlefont);
 

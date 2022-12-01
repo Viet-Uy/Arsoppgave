@@ -96,7 +96,7 @@ public class Database {
     public static Connection getConnection() throws Exception{
         try{
             String driver = "com.mysql.jdbc.Driver";
-            String url = "jdbc:mysql://localhost:3306/testuy";
+            String url = "jdbc:mysql://localhost:3306/Arsoppgave";
             String username = "arsoppgave";
             String password = "uyerdeilig123";
             Class.forName(driver);
