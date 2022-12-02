@@ -1,8 +1,8 @@
 package EnemyFil;
 
-public class onsWoman extends Enemy {
+public class Woman extends Enemy {
     
-public onsWoman(){
+public Woman(){
 
     EnemyName = "Woman";
     EnemyHealth = 15;

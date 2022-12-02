@@ -105,9 +105,7 @@ public class UI {
         window.add(skrivNavnPanel);
 
 
-
-
-
+        //Her skriver brukeren Navnet de vil bruke, "Navn" er placeholder i dette tilfellet
         skrivNavn = new JTextField("Navn");
         skrivNavn.selectAll();
         skrivNavn.setLayout(null);
@@ -125,13 +123,13 @@ public class UI {
         enterKnappPanel.setBackground(Color.black);
         window.add(enterKnappPanel);
 
+        //Enterknapp 
         enterKnapp = new JButton("Enter");
-
         enterKnapp.setBackground(Color.black);
         enterKnapp.setForeground(Color.white);
         enterKnapp.setFont(normalfont);
         enterKnapp.setFocusPainted(false);
-        enterKnapp.addActionListener(cHandler);
+        enterKnapp.addActionListener(cHandler); //Går videre til Choicehandler som bestemmer hva slags funksjon som skal kalles
         enterKnapp.setActionCommand("enter");
         enterKnappPanel.add(enterKnapp);
 
@@ -142,6 +140,7 @@ public class UI {
         mainTextPanel.setBackground(Color.black);
         window.add(mainTextPanel);
 
+        //Her skrives storyen, hva som står her skal ikke endres via UI.java filen, men Story.java filen
         mainTextArea = new JTextArea();
         mainTextArea.setBounds(100, 100, 600, 250);
         mainTextArea.setBackground(Color.black);
@@ -152,6 +151,7 @@ public class UI {
         mainTextArea.setEditable(false);
         mainTextPanel.add(mainTextArea);
         
+        //Radene med valg du kan ta, valg1-4 settes inn her
         choiceButtonPanel = new JPanel();
         choiceButtonPanel.setBounds(250, 350, 300, 150);
         choiceButtonPanel.setBackground(Color.black);
@@ -196,6 +196,7 @@ public class UI {
         valg4.setActionCommand("v4");
         choiceButtonPanel.add(valg4);
 
+        //Her displayes navn, hp, våpen og save knappen
         playerPanel = new JPanel();
         playerPanel.setBounds(100, 15, 600, 50);
         playerPanel.setBackground(Color.black);
@@ -205,12 +206,12 @@ public class UI {
 
 
 
-
         navnLabel = new JLabel("Navn:");
         navnLabel.setFont(normalfont);
         navnLabel.setForeground(Color.white); 
         playerPanel.add(navnLabel);
 
+        //Her skrives inn navnet
         navnLabelInnhold = new JLabel();
         navnLabelInnhold.setFont(normalfont);
         navnLabelInnhold.setForeground(Color.white);
@@ -221,6 +222,7 @@ public class UI {
         hpLabel.setForeground(Color.white);
         playerPanel.add(hpLabel);
 
+        //Hp
         hpNumberLabel = new JLabel();
         hpNumberLabel.setFont(normalfont);
         hpNumberLabel.setForeground(Color.white);
@@ -231,12 +233,14 @@ public class UI {
         weaponLabel.setForeground(Color.white);
         playerPanel.add(weaponLabel);
 
+        //Våpen
         weaponTypeLabel = new JLabel();
         weaponTypeLabel.setFont(normalfont);
         weaponTypeLabel.setBackground(Color.black);
         weaponTypeLabel.setForeground(Color.white);
         playerPanel.add(weaponTypeLabel);
 
+        //Save knapp
         save = new JButton("Save");
         save.setBackground(Color.black);
         save.setForeground(Color.white);
@@ -244,10 +248,10 @@ public class UI {
         save.setBorder(null);
         save.setFocusPainted(false);
         save.addActionListener(cHandler);
-        save.setActionCommand("save");
+        save.setActionCommand("save"); //Aktiverer save funksjon
         playerPanel.add(save);
         
-
+        //Lager en skjult currentPosition for å lagre posisjonen din
         currentPosition = new JLabel();
         currentPosition.setFont(normalfont);
         currentPosition.setBackground(Color.black);
@@ -256,6 +260,7 @@ public class UI {
 
         window.setVisible(true);
 
+        //Endrer farge på saveknappen når du hoverer over den
         save.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 save.setBackground(Color.gray);
@@ -265,7 +270,7 @@ public class UI {
             }
         });
 
-
+        //Henter inn navnet brukeren skrev inn på starten og displayer det på spillskjermen 
               enterKnapp.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e) {
                     navn = skrivNavn.getText();

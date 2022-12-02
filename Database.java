@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import WeaponFil.Fist;
 import WeaponFil.Knife;
-import WeaponFil.Weapon;
 public class Database {
         Story story;
         UI ui;
