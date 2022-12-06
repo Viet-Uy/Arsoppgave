@@ -408,5 +408,59 @@ public class Story{
 
         }
 
+        public void leftRoad(){
 
+            ui.mainTextArea.setText("left road");
+            
+            ui.valg1.setText("Left");
+            ui.valg2.setText("Middle");
+            ui.valg3.setText("Right");
+            ui.valg4.setText("");
+
+            game.nextPosition1 = "leftRoad";
+            game.nextPosition2 = "middleRoad";
+            game.nextPosition3 = "rightRoad";
+            game.nextPosition4 = "";
+
+
+    
+            position = "goOutDoor";
+
+        }
+
+        public void middleRoad(){
+            ui.mainTextArea.setText("middle road");
+            
+            ui.valg1.setText("Left");
+            ui.valg2.setText("Middle");
+            ui.valg3.setText("Right");
+            ui.valg4.setText("");
+
+            game.nextPosition1 = "leftRoad";
+            game.nextPosition2 = "middleRoad";
+            game.nextPosition3 = "rightRoad";
+            game.nextPosition4 = "";
+
+
+    
+            position = "goOutDoor";
+        }
+
+        public void rightRoad(){
+            ui.mainTextArea.setText("right road");
+            
+            ui.valg1.setText("Left");
+            ui.valg2.setText("Middle");
+            ui.valg3.setText("Right");
+            ui.valg4.setText("");
+
+            game.nextPosition1 = "leftRoad";
+            game.nextPosition2 = "middleRoad";
+            game.nextPosition3 = "rightRoad";
+            game.nextPosition4 = "";
+
+
+    
+            position = "goOutDoor";
+        }
 }

@@ -102,7 +102,7 @@ public class Database {
     public static Connection getConnection() throws Exception{
         try{
             String driver = "com.mysql.jdbc.Driver";
-            String url = "jdbc:mysql://localhost:3306/Arsoppgave"; //Hvor databasen er
+            String url = "jdbc:mysql://10.2.2.193:3306/arsoppgave"; //Hvor databasen er
             String username = "arsoppgave";
             String password = "uyerdeilig123";
             Class.forName(driver);
