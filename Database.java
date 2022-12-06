@@ -42,23 +42,21 @@ public class Database {
                 Wpn = result.getString("wpn");
                 Position = result.getString("position");
 
-                UI.weaponTypeLabel.setText(Wpn);
+
+                            //Setter posisjonen som ble hentet inn som nåværende posisjon
+            story.selectPosition(Position);
+
+                
+            UI.navnLabelInnhold.setText(Navn);
+            UI.hpNumberLabel.getText();
+            UI.hpNumberLabel.setText(Hp);
+            UI.weaponTypeLabel.setText(Wpn);
                 
                 switch(Wpn){
                     case "Fist": player.currentWeapon = new Fist();break;
                     case "Knife": player.currentWeapon = new Knife();break;
 
                 }
-
-
-
-            //Setter posisjonen som ble hentet inn som nåværende posisjon
-            story.selectPosition(Position);
-
-                
-                UI.navnLabelInnhold.setText(Navn);
-                UI.hpNumberLabel.getText();
-                UI.hpNumberLabel.setText(Hp);
 
                 
             }
@@ -102,7 +100,7 @@ public class Database {
     public static Connection getConnection() throws Exception{
         try{
             String driver = "com.mysql.jdbc.Driver";
-            String url = "jdbc:mysql://10.2.2.193:3306/arsoppgave"; //Hvor databasen er
+            String url = "jdbc:mysql://10.2.2.194:3306/arsoppgave"; //Hvor databasen er
             String username = "arsoppgave";
             String password = "uyerdeilig123";
             Class.forName(driver);
