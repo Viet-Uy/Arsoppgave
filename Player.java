@@ -1,6 +1,6 @@
 import WeaponFil.Weapon;
 import EnemyFil.Enemy;
-
+//Player navn og hp
 public class Player {
  
 public int hp;
