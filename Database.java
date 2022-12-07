@@ -18,7 +18,7 @@ public class Database {
     }
 
     static String Navn, Hp, Wpn, Position;
-
+    int secure;
         //Lager en resizable array som kan fjerne og legge til elementer
         public ArrayList<String> getDb(){
             //Hente inn fra databasefunksjon
@@ -42,29 +42,31 @@ public class Database {
                 Wpn = result.getString("wpn");
                 Position = result.getString("position");
 
-
-                            //Setter posisjonen som ble hentet inn som nåværende posisjon
+            //Setter posisjonen som ble hentet inn som nåværende posisjon
             story.selectPosition(Position);
-
-                
             UI.navnLabelInnhold.setText(Navn);
-            UI.hpNumberLabel.getText();
             UI.hpNumberLabel.setText(Hp);
             UI.weaponTypeLabel.setText(Wpn);
-                
-                switch(Wpn){
-                    case "Fist": player.currentWeapon = new Fist();break;
-                    case "Knife": player.currentWeapon = new Knife();break;
 
-                }
+                                
+             switch(Wpn){
+                 case "Fist": player.currentWeapon = new Fist();break;
+                 case "Knife": player.currentWeapon = new Knife();break;
+             }
 
-                
+
+
             }
             return array;
         }catch(Exception e){System.out.println(e);}
         return null;
 
     }
+
+
+    
+
+
     //Thows exception fordi det kan skje exceptions, om det skjer så kaster det den løsningen
     public void post() throws Exception{
 
@@ -100,9 +102,9 @@ public class Database {
     public static Connection getConnection() throws Exception{
         try{
             String driver = "com.mysql.jdbc.Driver";
-            String url = "jdbc:mysql://10.2.2.194:3306/arsoppgave"; //Hvor databasen er
-            String username = "arsoppgave";
-            String password = "uyerdeilig123";
+            String url = "jdbc:mysql://localhost:3306/arsoppgave"; //Hvor databasen er
+            String username = "arsoppgavebruker";
+            String password = "databaseBruker";
             Class.forName(driver);
             
             Connection conn = DriverManager.getConnection(url,username,password);
