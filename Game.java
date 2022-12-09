@@ -12,6 +12,7 @@ public class Game {
     Story story = new Story(this, ui, sv, player);
     Database database = new Database(player, story);
     String nextPosition1, nextPosition2, nextPosition3, nextPosition4, newName;
+    Boolean button_clicked = false;
 
     public static void main(String[] args) throws Exception  {
         new Game();
@@ -37,9 +38,18 @@ public class Game {
     }
 
     public void Save() throws Exception{
-        //Save funksjon
-        database.post();
-        ui.save.setText("Saved");
+
+            if(button_clicked){
+                return;
+            }else{
+
+                database.post();
+                ui.save.setText("Saved");
+                button_clicked = true;
+            }
+
+
+
 
 
     }
@@ -51,7 +61,7 @@ public class Game {
         //ActionEvent er en klasse der event er en forekomst. På innsiden av actionperfomed kan du call hva som helst, blant annet event.getActionCommand()
         public void actionPerformed(ActionEvent event) {
             String yourChoice = event.getActionCommand();
-
+            
             //yourChoice byttes ut med valg1-4 og dermed sendes den videre til Story. Story bestemmer så hva slags funksjoner skal bli kalt
             switch(yourChoice){
                 case "start":sv.SignIn(); break;

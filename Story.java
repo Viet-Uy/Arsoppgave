@@ -57,6 +57,9 @@ public class Story{
         
  
     public void selectPosition(String nextPosition){
+        game.button_clicked = false;
+        ui.save.setText("Save");
+        System.out.println("hei");
         switch(nextPosition.trim()){
             case "lockedWindow": lockedWindow(); break;
             case "backBedRoom":BedRoom(); break; 
