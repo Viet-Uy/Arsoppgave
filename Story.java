@@ -59,7 +59,6 @@ public class Story{
     public void selectPosition(String nextPosition){
         game.button_clicked = false;
         ui.save.setText("Save");
-        System.out.println("hei");
         switch(nextPosition.trim()){
             case "lockedWindow": lockedWindow(); break;
             case "backBedRoom":BedRoom(); break; 
@@ -69,12 +68,19 @@ public class Story{
             case "goStair": goHouseStair(); break;            
             case "takeFood": takeFood(); break;
             case "whoYouLady":whoYouLady(); break;
+            case "runoff": runOff(); break;
+            case "punchNrun": punchNrun();break;
+            case "apoNrun": apoNrun();break;
             case "fight":YouPunchLady(); break;
             case "monsterAttack":LadyPunchYou(); break;
             case "lose": lose(); break;
             case "win": win();break;
             case "rewardKnife": rewardKnife();break;
             case "goOutDoor": goOutDoor();break;
+            case "died": died();break;
+            case "leftRoad": leftRoad();break;
+            case "middleRoad": middleRoad();break;
+            case "rightRoad": rightRoad(); break;
             
             
             case "goSleep": goSleep(); break;
@@ -123,7 +129,7 @@ public class Story{
 
     public void searchRoom(){
 
-        ui.mainTextArea.setText("You search the room and find a note\n \n 'Im waiting downstairs, just get up when you are ready :)' " );
+        ui.mainTextArea.setText("You search the room and find a note\n \n 'Im waiting downstairs, just come down when you are ready :)' " );
         ui.valg1.setText("<");
         ui.valg2.setText("Go to the door");
         ui.valg3.setText("");
@@ -175,12 +181,12 @@ public class Story{
     public void goSleepAgain(){
 
         ui.mainTextArea.setText("You get dissected in your sleep and die...");
-        ui.valg1.setText("");
+        ui.valg1.setText(">");
         ui.valg2.setText("");
         ui.valg3.setText("");
         ui.valg4.setText("");
         
-        game.nextPosition1 = "";
+        game.nextPosition1 = "died";
         game.nextPosition2 = "";
         game.nextPosition3 = "";
         game.nextPosition4 = "";
@@ -244,14 +250,83 @@ public class Story{
         ui.valg3.setText("Apologise and run off");
         ui.valg4.setText("");
         
-        game.nextPosition1 = "";
-        game.nextPosition2 = "";
-        game.nextPosition3 = "";
+        game.nextPosition1 = "runOff";
+        game.nextPosition2 = "punchNrun";
+        game.nextPosition3 = "apoNrun";
         game.nextPosition4 = "";
 
         position = "whoYouLady";
 
     }
+
+    public void died(){
+        System.exit(0);
+    }
+
+    public void runOff(){
+
+        ui.mainTextArea.setText(" *As you run, you trip, fall. \n \n The woman then proceeds to enslave you because of the embarrassment you gave her...");
+        ui.valg1.setText(">");
+        ui.valg2.setText("");
+        ui.valg3.setText("");
+        ui.valg4.setText("");
+        
+        game.nextPosition1 = "died";
+        game.nextPosition2 = "";
+        game.nextPosition3 = "";
+        game.nextPosition4 = "";
+
+    
+
+        position = "runOff";
+    }
+
+    public void punchNrun(){
+
+        int playerDamage = new java.util.Random().nextInt(player.currentWeapon.damage);
+        player.currentFiend.EnemyHealth = player.currentFiend.EnemyHealth - playerDamage;
+
+        if(player.currentFiend.EnemyHealth<0){
+            player.currentFiend.EnemyHealth = 0;
+        
+        }
+        ui.mainTextArea.setText("The enemy took " + playerDamage + " damage! \n \n" + player.currentFiend.EnemyName + ": " + player.currentFiend.EnemyHealth + " hp");
+        
+        ui.valg1.setText(">");
+        ui.valg2.setText("");
+        ui.valg3.setText("");
+        ui.valg4.setText("");
+        
+        game.nextPosition1 = "goOutDoor";
+        game.nextPosition2 = "";
+        game.nextPosition3 = "";
+        game.nextPosition4 = "";
+
+
+        position = "punchNrun";
+    }
+
+    public void apoNrun(){
+
+        int tripDmg = 1;
+        player.hp = player.hp - tripDmg;
+        UI.hpNumberLabel.setText("" + player.hp);
+
+        ui.mainTextArea.setText(" 'Im sorry! \n \n'" + "you trip and lose " + tripDmg + " hp");
+        ui.valg1.setText(">");
+        ui.valg2.setText("");
+        ui.valg3.setText("");
+        ui.valg4.setText("");
+        
+        game.nextPosition1 = "goOutDoor";
+        game.nextPosition2 = "";
+        game.nextPosition3 = "";
+        game.nextPosition4 = "";
+
+
+        position = "apoNrun";
+    }
+
 
     public void YouPunchLady(){
         //Random damage
@@ -289,7 +364,7 @@ public class Story{
     
         }
 
-        position = "YouPunchLady";
+        position = "fight";
     }
 
     public void LadyPunchYou(){
@@ -327,7 +402,7 @@ public class Story{
     
         }
 
-        position = "LadyPunchYou";
+        position = "monsterAttack";
     }
 
 
@@ -413,57 +488,57 @@ public class Story{
 
         public void leftRoad(){
 
-            ui.mainTextArea.setText("left road");
+            ui.mainTextArea.setText("To be continued...");
             
-            ui.valg1.setText("Left");
-            ui.valg2.setText("Middle");
-            ui.valg3.setText("Right");
+            ui.valg1.setText(">");
+            ui.valg2.setText("");
+            ui.valg3.setText("");
             ui.valg4.setText("");
 
-            game.nextPosition1 = "leftRoad";
-            game.nextPosition2 = "middleRoad";
-            game.nextPosition3 = "rightRoad";
+            game.nextPosition1 = "died";
+            game.nextPosition2 = "";
+            game.nextPosition3 = "";
             game.nextPosition4 = "";
 
 
     
-            position = "goOutDoor";
+            position = "leftRoad";
 
         }
 
         public void middleRoad(){
-            ui.mainTextArea.setText("middle road");
+            ui.mainTextArea.setText("To be continued...");
             
-            ui.valg1.setText("Left");
-            ui.valg2.setText("Middle");
-            ui.valg3.setText("Right");
+            ui.valg1.setText(">");
+            ui.valg2.setText("");
+            ui.valg3.setText("");
             ui.valg4.setText("");
 
-            game.nextPosition1 = "leftRoad";
-            game.nextPosition2 = "middleRoad";
-            game.nextPosition3 = "rightRoad";
+            game.nextPosition1 = "died";
+            game.nextPosition2 = "";
+            game.nextPosition3 = "";
             game.nextPosition4 = "";
 
 
     
-            position = "goOutDoor";
+            position = "middleRoad";
         }
 
         public void rightRoad(){
-            ui.mainTextArea.setText("right road");
+            ui.mainTextArea.setText("To be continued...");
             
-            ui.valg1.setText("Left");
-            ui.valg2.setText("Middle");
-            ui.valg3.setText("Right");
+            ui.valg1.setText(">");
+            ui.valg2.setText("");
+            ui.valg3.setText("");
             ui.valg4.setText("");
 
-            game.nextPosition1 = "leftRoad";
-            game.nextPosition2 = "middleRoad";
-            game.nextPosition3 = "rightRoad";
+            game.nextPosition1 = "died";
+            game.nextPosition2 = "";
+            game.nextPosition3 = "";
             game.nextPosition4 = "";
 
 
     
-            position = "goOutDoor";
+            position = "rightRoad";
         }
 }

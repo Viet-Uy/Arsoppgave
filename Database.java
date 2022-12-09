@@ -41,6 +41,7 @@ public class Database {
                 Hp = result.getString("hp");
                 Wpn = result.getString("wpn");
                 Position = result.getString("position");
+                System.out.println(Position);
 
             //Setter posisjonen som ble hentet inn som nåværende posisjon
             story.selectPosition(Position);
