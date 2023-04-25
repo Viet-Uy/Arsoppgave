@@ -14,6 +14,7 @@
             <input type="password" name="passord" /><br />
 
             <input type="submit" value="Register" name="submit" />
+            <input type="submit" value="Back" name="back" />
         </form>    
     </body>
     <?php
@@ -29,12 +30,12 @@
               $hashedPwd = password_hash($passord, PASSWORD_DEFAULT);
             
             //Gjøre klar SQL-strengen
-            $query = "INSERT INTO users VALUES ('$brukernavn','$hashedPwd')";
+            $query = "INSERT INTO users (brukernavn, passord) VALUES ('$brukernavn','$hashedPwd')";
             
             //Utføre spørringen
             $result = mysqli_query($dbc, $query)
               or die('Error querying database.');
-            
+
             //Koble fra databasen
             mysqli_close($dbc);
 
@@ -46,6 +47,12 @@
                 //Ugyldig login
                 echo "Noe gikk galt, prøv igjen!";
             }
+        }
+
+        if(isset($_POST['back'])){
+
+            header("Location: index.php");
+
         }
     ?>
 </html>

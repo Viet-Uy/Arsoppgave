@@ -16,7 +16,7 @@ echo("hei");
      
  
      //Gjøre klar SQL-strengen
-     $query = "SELECT brukernavn, passord from users where brukernavn='$brukernavn'";
+     $query = "SELECT * from users where brukernavn='$brukernavn'";
      
      //Utføre spørringen
      $result = mysqli_query($dbc, $query)
@@ -27,19 +27,29 @@ echo("hei");
             echo "</br>";
             print_r($row);
             $dbPwd = $row['passord'];
+            $adminCheck = $row['admin'];
+            session_start();
+            $_SESSION['admin'] = $adminCheck;
             $checkedPwd = password_verify($passord, $dbPwd);
             if($checkedPwd === true){
                 //hvis brukernavn finnes og passord er riktig
-                header("location: ../success.html");
+                header("location: ../bruker.php");
             } else {
                 //hvis brukernavn finnes og passord er ikke riktig
+                header("location: ../index.php?feil=feilbruker");
 
-                header("location: ../failure.html");
+                if(isset($_GET["feil"])) {
+                echo "<p>Feil passord</p>";
+            }
+
+            if(isset($_GET["feil2"])) {
+                echo "<p>Feil brukernavn</p>";
+            }
             }
         }
     } else {
         //Hvis brukernavn ikke finnes
-        header("location: ../index.php?FeilBrukernavn");
+        header("location: ../index.php?feil2=feilBrukernavn");
+
     }  
-     //Koble fra databasen
 }
