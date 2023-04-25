@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 
 public class UI {
@@ -25,7 +26,7 @@ public class UI {
     JTextArea mainTextArea, mainTextAreaSI;
     Font titlefont = new Font("Times New Roman", Font.PLAIN, 90);
     Font normalfont = new Font("Times New Roman", Font.PLAIN, 25);
-    static String navn;
+    static String navn, initial;
 
     
 
@@ -106,11 +107,12 @@ public class UI {
 
 
         //Her skriver brukeren Navnet de vil bruke, "Navn" er placeholder i dette tilfellet
-        skrivNavn = new JTextField("Navn");
+        skrivNavn = new JTextField();
+        skrivNavn.setColumns(14);
         skrivNavn.selectAll();
         skrivNavn.setLayout(null);
         skrivNavn.setBounds(250, 350, 600, 50);
-        skrivNavn.setBackground(Color.blue);
+        skrivNavn.setBackground(Color.black);
         skrivNavn.setBorder(BorderFactory.createLineBorder(Color.black));
         skrivNavn.setForeground(Color.white);
         skrivNavn.setFont(normalfont);
@@ -214,6 +216,7 @@ public class UI {
         //Her skrives inn navnet
         navnLabelInnhold = new JLabel();
         navnLabelInnhold.setFont(normalfont);
+        //navnLabelInnhold.setBorder(new EmptyBorder(0,0,0,2));
         navnLabelInnhold.setForeground(Color.white);
         playerPanel.add(navnLabelInnhold);
 
@@ -274,7 +277,14 @@ public class UI {
               enterKnapp.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e) {
                     navn = skrivNavn.getText();
-                    navnLabelInnhold.setText(navn);
+                    if(navn.length() >= 7){
+                        System.out.println(navn.charAt(0));
+                        //initial = String.valueOf( + navn.charAt(1));
+                        navnLabelInnhold.setText(initial);
+                    }else{
+                        navnLabelInnhold.setText(navn);
+                    }
+                    
             }
             });
 
