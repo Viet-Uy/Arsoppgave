@@ -5,26 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" >
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Årsoppgave</title>
 </head>
 <body>
 
-<?php
-include 'includes/menu.inc.php';
-?>
 
-
-
-
-    <?php
+  <?php  
     session_start();
   
     if(isset($_SESSION['admin'])){
         $adminChecker = $_SESSION['admin'];
         if($adminChecker == 1){
-            echo "<a href='admin.php'>Admin Page</a>";
+            include 'includes/adminmenu.inc.php';
+            include 'includes/adminmenutekst.inc.php';
+
         }else if($adminChecker == 0){
-            echo "<a href='brukersok.php'>Bruker</a>";
+            include 'includes/menu.inc.php';
+            include 'includes/menutekst.inc.php';
         }
     }
     ?>

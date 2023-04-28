@@ -1,7 +1,5 @@
 <?php
-echo("hei");
  if(isset($_POST['submit'])){
-    echo("submit");
      //Gjøre om POST-data til variabler
      $brukernavn = $_POST['brukernavn'];
      $passord = $_POST['passord'];
@@ -28,10 +26,13 @@ echo("hei");
             print_r($row);
             $dbPwd = $row['passord'];
             $adminCheck = $row['admin'];
+            $brukernavn = $row['brukernavn'];
             session_start();
             $_SESSION['admin'] = $adminCheck;
+            $_SESSION['brukernavn'] = $brukernavn;
             $checkedPwd = password_verify($passord, $dbPwd);
             if($checkedPwd === true){
+                $userChecker = $_SESSION['brukernavn'];
                 //hvis brukernavn finnes og passord er riktig
                 header("location: ../bruker.php");
             } else {

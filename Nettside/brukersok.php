@@ -5,27 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Årsoppgave</title>
 </head>
 <body>
+    <?php  
+    session_start();
+  
+    if(isset($_SESSION['admin'])){
+        $adminChecker = $_SESSION['admin'];
+        if($adminChecker == 1){
+            include 'includes/adminmenu.inc.php';
 
-<div id="menu">
-    <div><button class="menyKnapp" onclick="location.href='faq.php'">FAQ</button></div>
-    <div><button class="menyKnapp" onclick="location.href='failure.html'">Bruker</button></div>
-    <div><button class="menyKnapp" onclick="location.href='failure.html'">Hei</button></div>
-    <div><a href="includes/logout.inc.php">Logout </a>  </div>
-    </div>
+        }else if($adminChecker == 0){
+            include 'includes/menu.inc.php';
+        }
+    }
+    ?>
 
-<h1>Søk etter en bruker</h1>
-
-
-
-  <div class="searchBarDiv">
-    <form action="" method="GET">
-      <input type="text" name="search" placeholder="Search for a user" class="searchBar" id="searchInput">
-      <button type="submit" class="searchButton">Search</button>
-    </form>
-  </div>
   <div class="webcontainer">
   <div class="tableDiv">
   <table class="adminTable">

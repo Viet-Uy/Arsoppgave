@@ -3,18 +3,20 @@
     <head>
         <link rel="stylesheet" href="style.css">
         <meta charset="utf-8">
-        <title>PHP Innlogging</title>
+        <title>PHP Innlogging</title> 
     </head>
     <body>
-        <p>Opprett ny bruker:</p>
+        <div id="login">
+        <h1>Opprett ny bruker:</h1>
         <form method="post">
             <label for="brukernavn">Brukernavn:</label>
             <input type="text" name="brukernavn" /><br />
             <label for="passord">Passord:</label>
             <input type="password" name="passord" /><br />
-
+        <br>
             <input type="submit" value="Register" name="submit" />
             <input type="submit" value="Back" name="back" />
+            </div>
         </form>    
     </body>
     <?php

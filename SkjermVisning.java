@@ -16,6 +16,8 @@ public class SkjermVisning {
 
     }
 
+ 
+
     public void visStartSkjerm(){
 
         //Start skjerm
@@ -64,11 +66,11 @@ public class SkjermVisning {
         ui.mainTextPanel.setVisible(true);
         ui.choiceButtonPanel.setVisible(true);
         ui.playerPanel.setVisible(true);
-
-
-
-
     }
+
+
+
+  
 
 
 }

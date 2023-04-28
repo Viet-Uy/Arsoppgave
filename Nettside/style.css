@@ -40,8 +40,9 @@ body {
     border-collapse: collapse;
     width: 100%;
     text-align: left;
-    background-color: #3b3486;
+    background-color: green;
     border-radius: 10px 0 0 10px;
+    margin-top:30px
   }
   
   .adminTable td{
@@ -63,7 +64,7 @@ body {
   }
   
   .adminTable tr:nth-child(even){
-    background-color: #7743DB;
+    background-color: green;
   }
   
   .adminTable tr{
@@ -99,12 +100,7 @@ body {
     border-radius: 0 5px 5px 0;
   }
 
-  a{
-    color: white;
-    font-size: 30px;
-    text-decoration: none;
-    
-  }
+
 
   a:hover{
     color:lightblue;
@@ -130,11 +126,98 @@ body {
   .menyKnapp{
     display: flex;
     width: 100%;
-    font-size: 30px;
+    margin: 10px;
+    font-size: 40px;
     background-color: #333333;
     color: white;
     border: none;
   }
+
+  #login{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 20px;
+    
+  }
+
+  #login a{
+    color: palegoldenrod;
+    font-size: 25px;
+    text-decoration: none;
+    
+  }
+
+  #login label{
+    font-size: 25px;
+    
+  }
+
+  #login input {
+    font-size: 25px;
+    
+  }
+
+  #login p{
+    font-size: 25px;
+    
+  }
+
+  #logout a{
+    color: white;
+    font-size: 40px;
+    text-decoration: none;
+    margin-right: 20px;
+
+  }
+  /* Welcome back animations */
+  #welcome {
+    color: #fff; /* Tekstfarge på velkomstboksen */
+    padding: 50px; /* Padding (luft) rundt innholdet i velkomstboksen */
+    text-align: center; /* Sentrerer innholdet i velkomstboksen */
+    pointer-events: none; /* Gjør velkomstboksen ikke-klikkbar og ikke-hoverbar */
+  }
+  
+  #welcome h1 {
+    font-size: 60px; /* Skriftstørrelse på overskriften */
+    margin: 0; /* Fjerner standard margin på overskriften */
+    text-transform: uppercase; /* Gjør teksten i overskriften uppercase */
+    letter-spacing: 10px; /* Legger til 10px avstand mellom bokstavene i overskriften */
+    position: relative; /* Setter relativ posisjon på overskriften */
+    animation-name: welcome-animation; /* Legger til en animasjon på overskriften */
+    animation-duration: 3s; /* Angir varighet på animasjonen */
+    animation-iteration-count: infinite; /* Angir at animasjonen skal gå i loop */
+  }
+  
+  @keyframes welcome-animation {
+    0% {
+      top: 0;
+      opacity: 0;
+    }
+    50% {
+      top: -20px;
+      opacity: 1;
+    }
+    100% {
+      top: 0;
+      opacity: 0;
+    }
+  }
+  
+  #welcome:hover h1 {
+    animation-name: none; /* Stopper animasjonen når musen sveiper over velkomstboksen */
+    color: #111; /* Endrer tekstfargen på overskriften */
+    background-color: #fff; /* Endrer bakgrunnsfargen på velkomstboksen */
+    transition: all 0.3s ease-in-out; /* Legger til en smooth overgangseffekt */
+  }
+  
+  /* Slutte her */
+
+  .logintekst{
+    font-size: 30px;
+  }
+
+
+
 
 
 

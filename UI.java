@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.border.EmptyBorder;
 
 
@@ -26,7 +28,7 @@ public class UI {
     JTextArea mainTextArea, mainTextAreaSI;
     Font titlefont = new Font("Times New Roman", Font.PLAIN, 90);
     Font normalfont = new Font("Times New Roman", Font.PLAIN, 25);
-    static String navn, initial;
+    static String navn, initial, Forst, Andre;
 
     
 
@@ -278,13 +280,18 @@ public class UI {
                 public void actionPerformed(ActionEvent e) {
                     navn = skrivNavn.getText();
                     if(navn.length() >= 7){
-                        System.out.println(navn.charAt(0));
-                        //initial = String.valueOf( + navn.charAt(1));
-                        navnLabelInnhold.setText(initial);
+                        Forst = String.valueOf(navn.charAt(0)).toUpperCase();
+                        Andre = String.valueOf(navn.charAt(1)).toUpperCase();
+                        navnLabelInnhold.setText(Forst + Andre);
+                        JOptionPane.showMessageDialog(null, "Navnet du satte inn var lengere enn 7 bokstaver og ble derfor kuttet ned til de to første initialene. Når du skal logge inn igjen så logger du fortsatt inn med: " + navn,"Ops ops!", JOptionPane.ERROR_MESSAGE);
+
+
+
                     }else{
                         navnLabelInnhold.setText(navn);
                     }
-                    
+        
+        
             }
             });
 

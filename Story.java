@@ -65,10 +65,10 @@ public class Story{
 
             case "searchRoom": searchRoom(); break;
             case "goBedDoor": BedDoor(); break;
-            case "goStair": goHouseStair(); break;            
+            case "goHouseStair": goHouseStair(); break;            
             case "takeFood": takeFood(); break;
             case "whoYouLady":whoYouLady(); break;
-            case "runoff": runOff(); break;
+            case "runOff": runOff(); break;
             case "punchNrun": punchNrun();break;
             case "apoNrun": apoNrun();break;
             case "fight":YouPunchLady(); break;
@@ -175,7 +175,7 @@ public class Story{
         game.nextPosition3 = "";
         game.nextPosition4 = "";
 
-        position = "BedDoor";
+        position = "goBedDoor";
     }
 
     public void goSleepAgain(){
