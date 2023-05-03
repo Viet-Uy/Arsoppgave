@@ -170,7 +170,7 @@ public class Story{
         ui.valg3.setText("");
         ui.valg4.setText("");
 
-        game.nextPosition1 = "goStair";
+        game.nextPosition1 = "goHouseStair";
         game.nextPosition2 = "backBedRoom";
         game.nextPosition3 = "";
         game.nextPosition4 = "";
