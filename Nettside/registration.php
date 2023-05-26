@@ -26,7 +26,7 @@
             $passord = $_POST['passord'];
             
             //Koble til databasen
-            $dbc = mysqli_connect('10.2.2.23', 'arsoppgavelinux', 'databaseBruker', 'Arsoppgave')
+            $dbc = mysqli_connect('10.2.2.24', 'arsoppgavelinux', 'databaseBruker', 'Arsoppgave')
               or die('Error connecting to MySQL server.');
 
               $hashedPwd = password_hash($passord, PASSWORD_DEFAULT);
