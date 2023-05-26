@@ -5,6 +5,9 @@
         <title>PHP Innlogging</title>
     </head>
     <body>
+        <?php
+        include 'includes/connect.inc.php'
+        ?>
         <div id="login">
         <h1>Vennligst logg inn:</h1>
         <form method="post" action="includes/login.inc.php">

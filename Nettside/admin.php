@@ -17,7 +17,10 @@
     <title>Årsoppgave</title>
 </head>
 
-<?php  include 'includes/adminchecker.inc.php' ?>
+<?php  
+include 'includes/adminchecker.inc.php';
+?>
+
 
 <body class="adminBody">
   <div class="searchBarDiv">
@@ -37,9 +40,9 @@
     </tr>
     <?php
     
-
-        $dbc = mysqli_connect('10.2.2.24', 'arsoppgavelinux', 'databaseBruker', 'Arsoppgave')
-        or die('Error connecting to MySQL server.');
+    include 'includes/connect.inc.php';
+        // $dbc = mysqli_connect('10.2.2.24', 'arsoppgavelinux', 'databaseBruker', 'Arsoppgave')
+        // or die('Error connecting to MySQL server.');
 
         $sqlUser = "SELECT * FROM users;";
         $resultUser = $dbc-> query($sqlUser);
