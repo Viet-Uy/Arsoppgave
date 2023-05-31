@@ -13,7 +13,7 @@
  ?>
 
 <h1>Hvordan spille Epic Game</h1>
-<video src="Dokumentasjon/Opplaeringvideo.mp4"></video>
+<video src="../Dokumentasjon/Opplaeringvideo.mp4"></video>
 
 <h2>
 
