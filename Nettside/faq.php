@@ -12,7 +12,10 @@
  include 'includes/adminchecker.inc.php'; 
  ?>
 
-<h1>
+<h1>Hvordan spille Epic Game</h1>
+<video src="Dokumentasjon/Opplaeringvideo.mp4"></video>
+
+<h2>
 
 1. Hvordan starter jeg spillet?<br>
     - sadasd <br>
@@ -72,7 +75,8 @@
              <br>
 
 
-</h1>
+</h2>
+
 
 
 </body>
