@@ -92,7 +92,7 @@ public class Story{
     public void defaultSetup(){
         
         //Default setup for spilleren, hvor mye hp personen har og hva slags våpen de starter med.
-        player.hp = 15;
+        player.hp = 16;
         UI.hpNumberLabel.setText("" + player.hp);
 
         player.currentWeapon = new Fist();
