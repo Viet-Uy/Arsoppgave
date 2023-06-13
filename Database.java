@@ -18,7 +18,6 @@ public class Database {
     }
 
     static String Navn, Hp, Wpn, Position;
-    int secure;
         //Lager en resizable array som kan fjerne og legge til elementer
         public ArrayList<String> getDb(){
             //Hente inn fra databasefunksjon
