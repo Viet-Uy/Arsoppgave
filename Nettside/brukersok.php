@@ -26,7 +26,7 @@
   <div class="tableDiv">
   <table class="adminTable">
     <tr>
-      <th>Name123</th>
+      <th>Name</th>
       <th>Hp</th>
       <th>Weapon</th>
       <th>Position</th>
