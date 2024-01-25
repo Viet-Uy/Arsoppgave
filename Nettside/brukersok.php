@@ -34,8 +34,7 @@
     </tr>
     <?php
         include 'includes/connect.inc.php';
-        // $dbc = mysqli_connect('10.2.2.24', 'arsoppgavelinux', 'databaseBruker', 'Arsoppgave')
-        // or die('Error connecting to MySQL server.');
+
 
         $sqlOppg = "SELECT * FROM Arsoppgave;";
         $resultOppg = $dbc-> query($sqlOppg);

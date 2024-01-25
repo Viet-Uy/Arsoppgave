@@ -29,11 +29,12 @@
             include 'includes/connect.inc.php';
             // $dbc = mysqli_connect('10.2.2.24', 'arsoppgavelinux', 'databaseBruker', 'Arsoppgave')
             //   or die('Error connecting to MySQL server.');
-
+            
+                //Hash passord 
               $hashedPwd = password_hash($passord, PASSWORD_DEFAULT);
             
             //Gjøre klar SQL-strengen
-            $query = "INSERT INTO users (brukernavn, passord) VALUES ('$brukernavn','$hashedPwd')";
+            $query = "INSERT INTO nettside (brukernavn, passord) VALUES ('$brukernavn','$hashedPwd')";
             
             //Utføre spørringen
             $result = mysqli_query($dbc, $query)

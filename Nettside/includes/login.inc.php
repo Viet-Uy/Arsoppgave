@@ -9,12 +9,12 @@
      echo "</br>";
      echo $passord;
      //Koble til databasen
-     $dbc = mysqli_connect('10.2.2.24', 'arsoppgavelinux', 'databaseBruker', 'Arsoppgave')
+     $dbc = mysqli_connect('localhost', 'arsoppgavebruker', 'databaseBruker', 'Arsoppgave')
        or die('Error connecting to MySQL server.');
      
  
      //Gjøre klar SQL-strengen
-     $query = "SELECT * from users where brukernavn='$brukernavn'";
+     $query = "SELECT * from nettside where brukernavn='$brukernavn'";
      
      //Utføre spørringen
      $result = mysqli_query($dbc, $query)
@@ -28,6 +28,7 @@
             $adminCheck = $row['admin'];
             $brukernavn = $row['brukernavn'];
             session_start();
+            //Unhash passord før innlogging
             $_SESSION['admin'] = $adminCheck;
             $_SESSION['brukernavn'] = $brukernavn;
             $checkedPwd = password_verify($passord, $dbPwd);

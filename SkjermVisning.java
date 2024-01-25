@@ -26,6 +26,7 @@ public class SkjermVisning {
         
 
         //Hide
+        ui.mainTextAreaSI.setVisible(false);
         ui.mainTextPanel.setVisible(false);
         ui.choiceButtonPanel.setVisible(false);
         ui.playerPanel.setVisible(false);
@@ -46,6 +47,7 @@ public class SkjermVisning {
         ui.playerPanel.setVisible(false);
 
         //Sign in
+        ui.mainTextAreaSI.setVisible(true);
         ui.mainTextPanelSI.setVisible(true);
         ui.skrivNavnPanel.setVisible(true);
         ui.enterKnappPanel.setVisible(true);

@@ -12,7 +12,7 @@
 
   <?php  
     session_start();
-  
+  //Sjekker etter admin
     if(isset($_SESSION['admin'])){
         $adminChecker = $_SESSION['admin'];
         if($adminChecker == 1){

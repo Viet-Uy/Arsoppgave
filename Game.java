@@ -5,7 +5,6 @@ public class Game {
 
     //Choicehandler, det som håndterer valgene
     ChoiceHandler cHandler = new ChoiceHandler();
-    
     UI ui = new UI();
     SkjermVisning sv = new SkjermVisning(this, ui);
     Player player = new Player();

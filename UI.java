@@ -13,9 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.border.EmptyBorder;
+
 
 
 public class UI {
@@ -87,7 +86,7 @@ public class UI {
         mainTextPanelSI.setBackground(Color.black);
         window.add(mainTextPanelSI);
 
-        mainTextAreaSI = new JTextArea("Please write your name in the field bellow");
+        mainTextAreaSI = new JTextArea("Write your name in the field bellow");
         mainTextAreaSI.setBounds(175, 100, 450, 250);
         mainTextAreaSI.setBackground(Color.black);
         mainTextAreaSI.setForeground(Color.white);
