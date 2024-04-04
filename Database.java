@@ -27,7 +27,7 @@ public class Database {
         final String navn = UI.navn;
         final String hp = UI.hpNumberLabel.getText();
         final String wpn = UI.weaponTypeLabel.getText(); 
-        final String position = Story.position;
+        String position = Story.position;
 
 
         try{
@@ -98,16 +98,27 @@ public class Database {
 
             } else{
                 PreparedStatement posted = con.prepareStatement("INSERT INTO Arsoppgave (navn,hp,wpn,position) VALUES (?, ?, ? ,?)");
-                posted.setString(1, navn);
-                posted.setString(2, hp);
-                posted.setString(3, wpn);
-                posted.setString(4, position.trim());
+                if(position != null && !position.trim().isEmpty()){
+                    
+                    posted.setString(1, navn);
+                    posted.setString(2, hp);
+                    posted.setString(3, wpn);
+                    posted.setString(4, position.trim());
+                }else{
+                    story.BedRoom();
+                    posted.setString(1, navn);
+                    posted.setString(2, hp);
+                    posted.setString(3, wpn);
+
+                }
+
 
                 int rowsAffected = posted.executeUpdate();
 
                 if(rowsAffected > 0){
                     System.out.println("Insertion successful!");
                     System.out.println(count);
+                    System.out.println(position);
                 } else{
                     System.out.println("Insertion failed");
                 }
@@ -144,22 +155,22 @@ public class Database {
 
 
 
-            PreparedStatement posted = con.prepareStatement("INSERT INTO Arsoppgave (navn, hp, wpn, position) VALUES (?, ?, ?, ?)");
+        PreparedStatement posted = con.prepareStatement("INSERT INTO Arsoppgave (navn, hp, wpn, position) VALUES (?, ?, ?, ?)");
             
-            
-        // // Set parameters for deletion
-        // posted.setString(1, navn);
-        // posted.setString(2, hp);
-        // posted.setString(3, wpn);
-        // posted.setString(4, position.trim());
 
-        // posted.executeUpdate(); // Execute the delete part
+        if(position != null && !position.trim().isEmpty()){
+            posted.setString(1, navn);
+            posted.setString(2, hp);
+            posted.setString(3, wpn);
+            posted.setString(4, position.trim());
+        }else{
+            posted.setString(1, navn);
+            posted.setString(2, hp);
+            posted.setString(3, wpn);
+            posted.setString(4,"BedRoom");
+            System.out.println("Her2");
+        }
 
-        // Now, insert the new record
-        posted.setString(1, navn);
-        posted.setString(2, hp);
-        posted.setString(3, wpn);
-        posted.setString(4, position.trim());
 
         int rowsAffected = posted.executeUpdate();
 
@@ -176,16 +187,6 @@ public class Database {
         System.out.println(e);
     }
 }
-    //         posted.setString(1, navn);
-    //         posted.setString(2, hp);
-    //         posted.setString(3, wpn);
-    //         posted.setString(4, position);
-    //         posted.setString(5, position);
-
-    //         posted.executeUpdate();//Brukes istedenfor executeQuery fordi manipulere/legger til informasjon
-
-    //     } catch(Exception e){System.out.println(e);}
-    // }
 
     public static void createTable() throws Exception{
         try{
