@@ -13,7 +13,7 @@ public class Database {
         UI ui;
         Player player;
 
-    //Sender med Story
+    //Sender med Story s
     public Database(Player p, Story s){
         player = p;
         story = s;
