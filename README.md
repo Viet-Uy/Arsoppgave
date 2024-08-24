@@ -9,4 +9,4 @@ Your progress, including name, HP, weapons, and position, is saved, ensuring you
 The better the weapons you get, the easier it will be for you to defeat the enemies you encounter along the way. The server being used is Apache, and everything within the database I use is run on XAMPP.
 
 # Important!
-Please note that this game can only be run locally with a specific XAMPP and directory setup. It is not hosted on any servers, so you can only play it on your PC by following the different guides listed under the documents folder, these are also listed in norwegian.
+Please note that this game can only be run locally with a specific XAMPP and directory setup. It is not hosted on any servers, so you can only play it on your PC by following the different guides listed under the documents folder, these are also listed in norwegian. Proceed to the file called Epicgame.pdf for a tutorial on how to set up the XAMPP server.
